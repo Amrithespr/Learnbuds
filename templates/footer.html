@@ -2,11 +2,12 @@
 {% load static %}
 
 
-        <!DOCTYPE html>
+        
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     <title>Footer</title>
     <style>
         body {
@@ -33,17 +34,16 @@
         }
         footer a:hover {
             text-decoration: underline;
-        }
+        } 
     </style>
 
 
 <footer>
-    <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+    <p>&copy; 2024 Learnbuds Jobportal. All rights reserved.</p>
     <p>
-        <a href="#">Home</a> |
-        <a href="#">About</a> |
-        <a href="#">Services</a> |
-        <a href="#">Contact</a>
+        <a href="/">Home</a> |
+        <a href="/about">About</a> |
+        <a href="/contact">Contact</a>
     </p>
     <p>Follow us on:
         <a href="https://www.facebook.com">Facebook</a>,
