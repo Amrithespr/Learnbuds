@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView
-from .models import Jobportal
+from .models import Jobportal,CompanyDashboard,CompanyProfiles,CompanyActivityTracking,CompanySuspension,CompanyFeedback
 
 
 # Create your views here.
@@ -47,10 +47,48 @@ class LoginView(ListView):
 class ForgotPasswordView(ListView):
 
     model = Jobportal
-    template_name = 'forgot_password.html'
+    template_name = 'ForgotPassword.html'
     context_object_name = 'job'
     
     
+# Company Dashboard
+
+class CompanyDashboard(ListView):
+
+    model = CompanyDashboard
+    template_name = 'CompanyDashboard/index.html'
+    context_object_name = 'CompanyDashboard'
+
+
+class CompanyProfiles(ListView):
+
+    model = CompanyProfiles
+    template_name = 'CompanyDashboard/profiles.html'
+    context_object_name = 'CompanyProfiles'
+
+
+class CompanyActivityTracking(ListView):
+
+    model = CompanyActivityTracking
+    template_name = 'CompanyDashboard/activity.html'
+    context_object_name = 'CompanyActivityTracking'
+    
+    
+class CompanySuspension(ListView):
+
+    model = CompanySuspension
+    template_name = 'CompanyDashboard/suspension.html'
+    context_object_name = 'CompanySuspension'
+    
+    
+class CompanyFeedback(ListView):
+
+    model = CompanyFeedback
+    template_name = 'CompanyDashboard/feedback.html'
+    context_object_name = 'CompanyFeedback'
+
+
+
 
 # Function based views
 
@@ -82,3 +120,5 @@ def ForgotPassword(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+

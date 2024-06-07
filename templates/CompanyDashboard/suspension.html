@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Company Suspension/Banning {% endblock %}
+
+{% block content %}
+
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Suspension/Banning</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="my-4">Company Suspension/Banning</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Company</th>
+          <th scope="col">Status</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Company 1</td>
+          <td>Active</td>
+          <td>
+            <button class="btn btn-warning">Suspend</button>
+            <button class="btn btn-danger">Ban</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Company 2</td>
+          <td>Suspended</td>
+          <td>
+            <button class="btn btn-success">Activate</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> {% endcomment %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Suspension/Banning</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{% static 'styles.css' %}" rel="stylesheet">
+  <style>
+    .suspension-header {
+      background-color: #1Ac3B3;
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .table th,
+    .table td {
+      vertical-align: middle;
+    }
+
+    .table th {
+      border-top: none;
+      border-bottom: 2px solid #dee2e6;
+      background-color: #f8f9fa;
+      color: #1Ac3B3;
+    }
+
+    .btn-suspend {
+      background-color: #ffc107;
+      border-color: #ffc107;
+    }
+
+    .btn-ban {
+      background-color: #dc3545;
+      border-color: #dc3545;
+    }
+
+    .btn-activate {
+      background-color: #28a745;
+      border-color: #28a745;
+    }
+  </style>
+</head>
+<body>
+  <div class="suspension-header">
+    <div class="container">
+      <h1>Company Suspension/Banning</h1>
+      <p>Temporarily or permanently disable company accounts</p>
+    </div>
+  </div>
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Company</th>
+          <th scope="col">Status</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Company 1</td>
+          <td>Active</td>
+          <td>
+            <button class="btn btn-suspend">Suspend</button>
+            <button class="btn btn-ban">Ban</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Company 2</td>
+          <td>Suspended</td>
+          <td>
+            <button class="btn btn-activate">Activate</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>  
+
+{% endblock %}

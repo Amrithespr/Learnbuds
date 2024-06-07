@@ -8,7 +8,7 @@ app_name = 'jobportal'
 urlpatterns = [
     
 
-    # urls for function based views
+    ## urls for function based views
     
 
     path('',views.home,name='home'),
@@ -19,7 +19,7 @@ urlpatterns = [
     path('ForgotPassword/',views.ForgotPassword,name='ForgotPassword'),
     
     
-    # urls for class based views
+    ## urls for class based views
     
 
     path('homeview/',views.HomeView.as_view(),name='homeview'),
@@ -30,9 +30,13 @@ urlpatterns = [
     path('ForgotPasswordView/',views.ForgotPasswordView.as_view(),name='ForgotPasswordView/'),
     
 
-
-
-
+    # company Dashboard
+    
+    path('CompanyDashboard/',views.CompanyDashboard.as_view(),name='CompanyDashboard/'),
+    path('CompanyProfiles/',views.CompanyProfiles.as_view(),name='CompanyProfiles/'),
+    path('CompanyActivityTracking/',views.CompanyActivityTracking.as_view(),name='CompanyActivityTracking/'),
+    path('CompanySuspension/',views.CompanySuspension.as_view(),name='CompanySuspension/'),
+    path('CompanyFeedback/',views.CompanyFeedback.as_view(),name='CompanyFeedback/'),
 
 ]
 
