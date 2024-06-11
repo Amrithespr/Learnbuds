@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.generic import ListView
+from django.contrib import auth
 from .models import Jobportal,CompanyDashboard,CompanyProfiles,CompanyActivityTracking,CompanySuspension,CompanyFeedback
+from .models import Jobportal,UserDashboard,UserProfiles,UserActivityTracking,UserSuspension,UserFeedback
+from .models import JobApplicationTracking,JobCategoryManagement,JobListingDashboard,JobPostingEditing,JobStatusManagement
 
 
 # Create your views here.
@@ -56,7 +59,7 @@ class ForgotPasswordView(ListView):
 class CompanyDashboard(ListView):
 
     model = CompanyDashboard
-    template_name = 'CompanyDashboard/index.html'
+    template_name = 'CompanyDashboard/CompanyDashboard.html'
     context_object_name = 'CompanyDashboard'
 
 
@@ -86,6 +89,80 @@ class CompanyFeedback(ListView):
     model = CompanyFeedback
     template_name = 'CompanyDashboard/feedback.html'
     context_object_name = 'CompanyFeedback'
+
+
+# User Dashboard
+
+class UserDashboard(ListView):
+
+    model = UserDashboard
+    template_name = 'UserDashboard/UserDashboard.html'
+    context_object_name = 'UserDashboard'
+
+
+class UserProfiles(ListView):
+
+    model = UserProfiles
+    template_name = 'UserDashboard/profiles.html'
+    context_object_name = 'UserProfiles'
+
+
+class UserActivityTracking(ListView):
+
+    model = UserActivityTracking
+    template_name = 'UserDashboard/activity.html'
+    context_object_name = 'UserActivityTracking'
+    
+    
+class UserSuspension(ListView):
+
+    model = UserSuspension
+    template_name = 'UserDashboard/suspension.html'
+    context_object_name = 'UserSuspension'
+    
+    
+class UserFeedback(ListView):
+
+    model = UserFeedback
+    template_name = 'UserDashboard/feedback.html'
+    context_object_name = 'UserFeedback'
+
+
+# Job Management
+
+class JobApplicationTracking(ListView):
+
+    model = JobApplicationTracking
+    template_name = 'JobManagement/JobApplicationTracking.html'
+    context_object_name = 'JobApplicationTracking'
+
+
+class JobCategoryManagement(ListView):
+
+    model = JobCategoryManagement
+    template_name = 'JobManagement/JobCategoryManagement.html'
+    context_object_name = 'JobCategoryManagement'
+
+
+class JobListingDashboard(ListView):
+
+    model = JobListingDashboard
+    template_name = 'JobManagement/JobListingDashboard.html'
+    context_object_name = 'JobListingDashboard'
+
+
+class JobPostingEditing(ListView):
+
+    model = JobPostingEditing
+    template_name = 'JobManagement/JobPostingEditing.html'
+    context_object_name = 'JobPostingEditing'
+
+
+class JobStatusManagement(ListView):
+
+    model = JobStatusManagement
+    template_name = 'JobManagement/JobStatusManagement.html'
+    context_object_name = 'JobStatusManagement'
 
 
 
@@ -122,3 +199,17 @@ def logout(request):
     return redirect('/')
 
 
+# ReportsAndAnalytics
+
+def ReportsAndAnalytics(request):
+    return render (request, 'ReportsAndAnalytics/ReportsAndAnalytics.html')
+
+
+def ViewReportsAndAnalytics(request):
+    return render (request, 'ReportsAndAnalytics/ViewReportsAndAnalytics.html')
+
+
+# Settings and Configuration
+
+def PaymentSettings(request):
+    return render (request, 'PaymentSettings/PaymentSettings.html')

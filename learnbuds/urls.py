@@ -25,7 +25,6 @@ urlpatterns = [
 
     path('', include("jobportal.urls")),
     path('authentication/', include("authentication.urls")),
-    
 
 ]
 

@@ -2,55 +2,10 @@
 
 {% load static %}
 
-{% block title %} company Dashboard {% endblock %}
+{% block title %} User Dashboard {% endblock %}
 
 {% block content %}
 
-
-
-
-
-{% comment %} <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Company Dashboard</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-  <div class="container">
-    <h1 class="my-4">Company Dashboard</h1>
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Total Companies</h5>
-            <p class="card-text">100</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Active Companies</h5>
-            <p class="card-text">80</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Suspended Companies</h5>
-            <p class="card-text">10</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-</body>
-</html> {% endcomment %}
 
 
 <!DOCTYPE html>
@@ -58,7 +13,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Company Dashboard</title>
+  <title>User Dashboard</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
   <link href="{% static 'styles.css' %}" rel="stylesheet">
   <style>
@@ -67,7 +22,7 @@
       color: white;
       padding: 40px 0;
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 45px;
     }
 
     .dashboard-card {
@@ -76,6 +31,10 @@
       border-radius: 5px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
     }
 
     .dashboard-card:hover {
@@ -94,15 +53,15 @@
 </head>
 <body>
   <div class="dashboard-header">
-    <h1>Company Dashboard</h1>
-    <p>Overview of all registered companies with statistics</p>
+    <h1>User Dashboard</h1>
+    <p>Overview of all registered users with statistics</p>
   </div>
   <div class="container">
     <div class="row">
       <div class="col-lg-4">
         <div class="card dashboard-card">
           <div class="card-body">
-            <h5 class="card-title">Total Companies</h5>
+            <h5 class="card-title">Total Users</h5>
             <p class="card-text">100</p>
           </div>
         </div>
@@ -110,7 +69,7 @@
       <div class="col-lg-4">
         <div class="card dashboard-card">
           <div class="card-body">
-            <h5 class="card-title">Active Companies</h5>
+            <h5 class="card-title">Active Users</h5>
             <p class="card-text">80</p>
           </div>
         </div>
@@ -118,7 +77,7 @@
       <div class="col-lg-4">
         <div class="card dashboard-card">
           <div class="card-body">
-            <h5 class="card-title">Suspended Companies</h5>
+            <h5 class="card-title">Suspended Users</h5>
             <p class="card-text">10</p>
           </div>
         </div>
