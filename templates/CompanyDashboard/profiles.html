@@ -2,93 +2,96 @@
 
 {% load static %}
 
-{% block title %} company Profiles {% endblock %}
+{% block title %}
+  company Profiles
+{% endblock %}
 
 {% block content %}
+  {% comment %} <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Company Profiles</title>
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" />
+    </head>
+    <body>
+      <div class="container">
+        <h1 class="my-4">Company Profiles</h1>
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action">Company 1</a>
+          <a href="#" class="list-group-item list-group-item-action">Company 2</a>
+          <a href="#" class="list-group-item list-group-item-action">Company 3</a>
+        </div>
+      </div>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    </body>
+  </html> {% endcomment %}
 
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Company Profiles</title>
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" />
+      <style>
+        .profiles-header {
+          /* background-color: #1Ac3B3;*/
+          /* color: white; */
+          padding: 40px 0;
+          text-align: center;
+          margin-bottom: 20px;
+        }
+        
+        .list-group-item {
+          border: none;
+          border-radius: 5px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .list-group-item:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .list-group-item-action {
+          /* color: #1Ac3B3;*/
+          text-decoration: none;
+        }
+        
+        .list-group-item-action:hover {
+          color #159d8d;
+          color: blue;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="profiles-header">
+        <div class="container">
+          <h1>Company Profiles</h1>
+          <p>Browse and manage the profiles of registered companies</p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="list-group">
+          
+            
+              <a href="#" class="list-group-item list-group-item-action">Company 1</a>
+           
+            <br>
+              <a href="#" class="list-group-item list-group-item-action">Company 2</a>
+            
+            <br>
+              <a href="#" class="list-group-item list-group-item-action">Company 3</a>
+            
+         
+        </div>
+      </div>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    </body>
+  </html>
 
-
-
-{% comment %} <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Company Profiles</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-  <div class="container">
-    <h1 class="my-4">Company Profiles</h1>
-    <div class="list-group">
-      <a href="#" class="list-group-item list-group-item-action">Company 1</a>
-      <a href="#" class="list-group-item list-group-item-action">Company 2</a>
-      <a href="#" class="list-group-item list-group-item-action">Company 3</a>
-    </div>
-  </div>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-</body>
-</html> {% endcomment %}
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Company Profiles</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    .profiles-header {
-      background-color: #1Ac3B3;
-      color: white;
-      padding: 40px 0;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .list-group-item {
-      border: none;
-      border-radius: 5px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .list-group-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    .list-group-item-action {
-      color: #1Ac3B3;
-      text-decoration: none;
-    }
-
-    .list-group-item-action:hover {
-      color: #159d8d;
-    }
-  </style>
-</head>
-<body>
-  <div class="profiles-header">
-    <div class="container">
-      <h1>Company Profiles</h1>
-      <p>Browse and manage the profiles of registered companies</p>
-    </div>
-  </div>
-  <div class="container">
-    <div class="list-group">
-      <a href="#" class="list-group-item list-group-item-action">Company 1</a>
-      <a href="#" class="list-group-item list-group-item-action">Company 2</a>
-      <a href="#" class="list-group-item list-group-item-action">Company 3</a>
-    </div>
-  </div>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
-
-
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>  
-
+  <br /><br /><br /><br /><br><br>
 {% endblock %}
