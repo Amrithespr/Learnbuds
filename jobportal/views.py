@@ -15,7 +15,7 @@ from .models import JobApplicationTracking,JobCategoryManagement,JobListingDashb
 class HomeView(ListView):
 
     model = Jobportal
-    template_name = 'home.html'
+    template_name = 'base.html'
     context_object_name = 'job'
     
 
@@ -59,7 +59,8 @@ class ForgotPasswordView(ListView):
 class CompanyDashboard(ListView):
 
     model = CompanyDashboard
-    template_name = 'CompanyDashboard/CompanyDashboard.html'
+    # template_name = 'CompanyDashboard/CompanyDashboard.html'
+    template_name = 'accordion.html'
     context_object_name = 'CompanyDashboard'
 
 
@@ -96,7 +97,7 @@ class CompanyFeedback(ListView):
 class UserDashboard(ListView):
 
     model = UserDashboard
-    template_name = 'UserDashboard/UserDashboard.html'
+    template_name = 'UserDashboard/index.html'
     context_object_name = 'UserDashboard'
 
 
@@ -171,7 +172,7 @@ class JobStatusManagement(ListView):
 
 
 def home(request):
-    return render (request, 'home.html')
+    return render (request, 'MainDashboard.html')
 
 
 def about(request):

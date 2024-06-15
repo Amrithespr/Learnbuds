@@ -1,20 +1,19 @@
 {% extends 'base.html' %}
-
 {% load static %}
 
-{% block title %} User Profiles {% endblock %}
 
+{% block headerTitle %} User Profiles {% endblock headerTitle %}
+{% block headerExplanation%} 
+<div style="margin-right: 71px;">
+Browse and manage the profiles of registered users
+</div>
+{% endblock headerExplanation%}
+
+{% block pagename%} Users > User Profiles {% endblock pagename  %}
 {% block content %}
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Profiles</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
   <style>
     .profiles-header {
      /* background-color: #1Ac3B3;*/
@@ -45,9 +44,8 @@
       color: #159d8d;
     }
   </style>
-</head>
-<body>
-  <div class="profiles-header">
+
+  {% comment %} <div class="profiles-header">
     <div class="container">
       <h1>User Profiles</h1>
       <p>Browse and manage the profiles of registered users</p>
@@ -61,11 +59,163 @@
     </div>
   </div>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+ {% endcomment %}
 
+ <div class=" col-md-8 " style="margin-left: 230px; margin-top: 50px;">
+  <div class="card table-card">
+      <div class="card-header">
+          <h5>Users</h5>
+          <div class="card-header-right">
+              <ul class="list-unstyled card-option">
+                  <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                  <li><i class="fa fa-window-maximize full-card"></i></li>
+                  <li><i class="fa fa-minus minimize-card"></i></li>
+                  <li><i class="fa fa-refresh reload-card"></i></li>
+                  <li><i class="fa fa-trash close-card"></i></li>
+              </ul>
+          </div>
+      </div>
+<div class="container">
+ <div class="card-block">
+  <div class="table-responsive">
+      <table class="table table-hover">
+          <thead>
+          <tr>
+              <th>
+                  {% comment %}
+                  <div class="chk-option">
+                      <div class="checkbox-fade fade-in-primary">
+                          <label class="check-task">
+                              <input type="checkbox" value="">
+                              <span class="cr">
+                  <i class="cr-icon fa fa-check txt-default"></i>
+              </span>
+                          </label>
+                      </div>
+                  </div>
+                  {% endcomment %}
+                  Name
+              </th>
+              <th>Company Name</th>
+              <th>Applied Date</th>
+              <th class="text-right">Status</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+              <td>
+                  {% comment %} <div class="chk-option">
+                      <div class="checkbox-fade fade-in-primary">
+                          <label class="check-task">
+                              <input type="checkbox" value="">
+                              <span class="cr">
+                      <i class="cr-icon fa fa-check txt-default"></i>
+                  </span>
+                          </label>
+                      </div>
+                  </div> {% endcomment %}
+                  <div class="d-inline-block align-middle">
+                      <img src="{% static 'assets/images/avatar-4.jpg' %}"
+                           alt="user image" class="img-radius img-40 align-top m-r-15">
+                      <div class="d-inline-block">
+                          <h6>John Deo</h6>
+                          <p class="text-muted m-b-0">Graphics Designer</p>
+                      </div>
+                  </div>
+              </td>
+              <td>Able Pro</td>
+              <td>Jun, 26</td>
+              <td class="text-right"><label class="label label-danger">Rejected</label>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  {% comment %} <div class="chk-option">
+                      <div class="checkbox-fade fade-in-primary">
+                          <label class="check-task">
+                              <input type="checkbox" value="">
+                              <span class="cr">
+                                 <i class="cr-icon fa fa-check txt-default"></i>
+                              </span>
+                          </label>
+                      </div>
+                  </div> {% endcomment %}
+                  <div class="d-inline-block align-middle">
+                      <img src="{% static 'assets/images/avatar-5.jpg' %}"
+                           alt="user image" class="img-radius img-40 align-top m-r-15">
+                      <div class="d-inline-block">
+                          <h6>Jenifer Vintage</h6>
+                          <p class="text-muted m-b-0">Web Designer</p>
+                      </div>
+                  </div>
+              </td>
+              <td>Mashable</td>
+              <td>March, 31</td>
+              <td class="text-right"><label class="label label-primary">Resume
+                  Viewed</label></td>
+          </tr>
+          <tr>
+              <td>
+                  <div class="chk-option">
+                      <div class="checkbox-fade fade-in-primary">
+                          <label class="check-task">
+                              <input type="checkbox" value="">
+                              <span class="cr">
+                                  <i class="cr-icon fa fa-check txt-default"></i>
+                              </span>
+                          </label>
+                      </div> 
+                  <div class="d-inline-block align-middle">
+                      <img src="{% static 'assets/images/avatar-3.jpg' %}"
+                           alt="user image" class="img-radius img-40 align-top m-r-15">
+                      <div class="d-inline-block">
+                          <h6>William Jem</h6>
+                          <p class="text-muted m-b-0">Developer</p>
+                      </div>
+                  </div>
+              </td>
+              <td>Flatable</td>
+              <td>Aug, 02</td>
+              <td class="text-right"><label class="label label-primary">Interview
+                  scheduled</label></td>
+          </tr>
+          <tr>
+              <td>
+                  {% comment %} <div class="chk-option">
+                      <div class="checkbox-fade fade-in-primary">
+                          <label class="check-task">
+                              <input type="checkbox" value="">
+                              <span class="cr">
+                                  <i class="cr-icon fa fa-check txt-default"></i>
+                              </span>
+                          </label>
+                      </div>
+                  </div> {% endcomment %}
+                  <div class="d-inline-block align-middle">
+                      <img src="{% static 'assets/images/avatar-2.jpg' %}"
+                           alt="user image" class="img-radius img-40 align-top m-r-15">
+                      <div class="d-inline-block">
+                          <h6>David Jones</h6>
+                          <p class="text-muted m-b-0">Developer</p>
+                      </div>
+                  </div>
+              </td>
+              <td>Guruable</td>
+              <td>Sep, 22</td>
+              <td class="text-right"><label
+                      class="label label-success">Shortlisted</label></td>
+          </tr>
+          </tbody>
+      </table>
+      {% comment %} <div class="text-right m-r-20">
+          <a href="#!" class=" b-b-primary text-primary">View all Users</a>
+      </div> {% endcomment %}
+  </div>
+  </div>
+  </div>
+  </div>
+  
 
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>  
+{% comment %} <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>   {% endcomment %}
 
 {% endblock %}

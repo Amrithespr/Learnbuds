@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
-
 {% load static %}
 
-{% block title %} User Activity Tracking {% endblock %}
 
+{% block headerTitle %} User Activity Tracking {% endblock headerTitle %}
+{% block headerExplanation%} Monitor User activities, such as job applied and profile updates{% endblock headerExplanation%}
+{% block pagename%} Users > User Activity Tracking {% endblock pagename  %}
 {% block content %}
 
 
@@ -37,10 +38,10 @@
 </head>
 <body>
   <div class="activity-header">
-    <div class="container">
+    {% comment %} <div class="container">
       <h1>User Activity Tracking</h1>
       <p>Monitor User activities, such as job applied and profile updates</p>
-    </div>
+    </div> {% endcomment %}
   </div>
   <div class="container">
     <table class="table">

@@ -33,7 +33,7 @@ urlpatterns = [
     
     # User Dashboard
     path("UserDashboard/", views.UserDashboard.as_view(), name="UserDashboard"),
-    path("UserProfiles/", views.UserProfiles.as_view(), name="UserDashboard"),
+    path("UserProfiles/", views.UserProfiles.as_view(), name="UserProfiles"),
     path("UserActivityTracking/",views.UserActivityTracking.as_view(),name="UserActivityTracking"),
     path("UserSuspension/", views.UserSuspension.as_view(), name="UserSuspension"),
     path("UserFeedback/", views.UserFeedback.as_view(), name="UserFeedback"),
