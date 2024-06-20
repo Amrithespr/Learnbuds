@@ -1,7 +1,29 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, Form
 from django.forms import TextInput, PasswordInput, CharField
 from django.core.validators import MinLengthValidator
 from .models import *
+
+
+class LoginForm(Form):
+    username = CharField(
+        max_length = 15,
+        min_length = 4,
+        required = True,
+        label = 'Username',
+        widget = TextInput({
+            'class': 'form-control'
+        })
+    )
+
+    password = CharField(
+        max_length = 15,
+        min_length = 4,
+        required = True,
+        label = 'Password',
+        widget = PasswordInput({
+            'class': 'form-control'
+        })
+    )
 
 class UserCreationForm(ModelForm):
 
@@ -34,3 +56,6 @@ class UserCreationForm(ModelForm):
                 'class': 'form-control'
             }),
         }
+        
+        
+        
