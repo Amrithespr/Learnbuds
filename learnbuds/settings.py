@@ -34,16 +34,16 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'jobportal',
     'administrator',
-    'authentication',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
 ]
 
-AUTH_USER_MODEL = 'administrator.CustomUser'
+AUTH_USER_MODEL = 'accounts.User'
 
 
 MIDDLEWARE = [
@@ -80,21 +80,21 @@ WSGI_APPLICATION = 'learnbuds.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'learnbuds',
-        'USER': 'root',
-        'PASSWORD':'',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'learnbuds',
+#         'USER': 'root',
+#         'PASSWORD':'',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

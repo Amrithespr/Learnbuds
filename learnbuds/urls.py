@@ -18,14 +18,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    path('jobportal', include("jobportal.urls")),
-    path('', include("administrator.urls")),
-    path('authentication/', include("authentication.urls")),
+    
+    path('jobportal/', include("jobportal.urls")),
+    path('administrator/', include("administrator.urls", namespace='administrator')),
+    path('', include('accounts.urls', namespace='accounts')),
 
 ]
 
