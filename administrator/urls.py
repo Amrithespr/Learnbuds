@@ -3,7 +3,7 @@ from django.urls import path
 from django.views.generic import TemplateView
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from .views import RegisterView, CustomLoginView
+# from .views import RegisterView, CustomLoginView
 
 app_name = "administrator"
 
@@ -15,8 +15,8 @@ urlpatterns = [
     path("contact/", views.contact, name="contact"),
 
     # Authentication
-    path("login2/", views.login, name="login"),
-    path("register2/", views.register, name="register"),
+    path("login/", views.login, name="login"),
+    path("register/", views.register, name="register"),
     path("ForgotPassword2/", views.ForgotPassword, name="ForgotPassword"),
     path("editProfile/", views.editProfile, name="editProfile"),
     
@@ -24,8 +24,8 @@ urlpatterns = [
     path("announcement/", views.announcement, name="announcement"),
     
     # urls for class based views
-     path('register/', RegisterView.as_view(), name='register'),
-     path('login/', CustomLoginView.as_view(), name='login'),
+    #  path('register/', RegisterView.as_view(), name='register'),
+    #  path('login/', CustomLoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path("ForgotPasswordView/",views.ForgotPasswordView.as_view(),name="ForgotPasswordView/",),
     

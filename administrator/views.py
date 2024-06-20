@@ -8,7 +8,7 @@ from .models import JobApplicationTracking,JobCategoryManagement,JobListingDashb
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from django.contrib.auth.views import LoginView
-from .forms import CustomUserCreationForm
+# from .forms import CustomUserCreationForm
 
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
@@ -21,13 +21,13 @@ from django.urls import reverse
 
 # class based views
 
-class RegisterView(CreateView):
-    form_class = CustomUserCreationForm
-    template_name = 'authentication/register.html'
-    success_url = reverse_lazy('login')
+# class RegisterView(CreateView):
+#     form_class = CustomUserCreationForm
+#     template_name = 'authentication/register.html'
+#     success_url = reverse_lazy('login')
 
-class CustomLoginView(LoginView):
-    template_name = 'authentication/login.html'
+# class CustomLoginView(LoginView):
+#     template_name = 'authentication/login.html'
 
 
 

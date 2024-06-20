@@ -9,14 +9,14 @@ from django.utils.translation import gettext_lazy as _
 
 
 
-class CustomUser(AbstractUser):
-    email = models.EmailField(unique=True)
-    name    = models.CharField(max_length=250)
-    password = models.CharField(max_length=250)
+# class CustomUser(AbstractUser):
+#     email = models.EmailField(unique=True)
+#     name    = models.CharField(max_length=250)
+#     password = models.CharField(max_length=250)
         
 
-    def __str__(self):
-        return self.username
+#     def __str__(self):
+#         return self.username
 
 
 
