@@ -1,14 +1,24 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block headerTitle %} Sign Up {% endblock headerTitle %}
+{% block headerExplanation%} 
+<div style="margin-right: 71px;">
+{% comment %} Browse and manage the profiles of registered users {% endcomment %}
+</div>
+{% endblock headerExplanation%}
+
+{% block pagename%} Pages > Sign Up {% endblock pagename  %}
+
+{% block content%}
+
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>Mega Able bootstrap admin template by codedthemes </title>
-    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 10]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
+  
       <!-- Meta -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -33,6 +43,9 @@
       <link rel="stylesheet" type="text/css" href="assets/icon/font-awesome/css/font-awesome.min.css">
       <!-- Style.css -->
       <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+       <!-- social icons.css -->
+       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+  
   </head>
 
   <body themebg-pattern="theme1">
@@ -96,9 +109,8 @@
             <div class="row">
                 <div class="col-sm-12">
                     <form class="md-float-material form-material">
-                        <div class="text-center">
-                            <img src="assets/images/logo.png" alt="logo.png">
-                        </div>
+                        <div class="text-center"> {% csrf_token %}
+                            {% comment %} <img src="assets/images/logo.png" alt="LEARNBUDS"> {% endcomment %}
                         <div class="auth-box card">
                             <div class="card-block">
                                 <div class="row m-b-20">
@@ -106,13 +118,13 @@
                                         <h3 class="text-center txt-primary">Sign up</h3>
                                     </div>
                                 </div>
-                                <div class="form-group form-primary">
-                                    <input type="text" name="user-name" class="form-control" required="">
+                                <div class="form-group form-primary" action="/register/" method="POST" role="form">
+                                    <input type="text" name="username" class="form-control" required="">
                                     <span class="form-bar"></span>
                                     <label class="float-label">Choose Username</label>
-                                </div>
+                                </div> {% for msg in messages %} {{msg}}  {% endfor %} 
                                 <div class="form-group form-primary">
-                                    <input type="text" name="email" class="form-control" required="">
+                                    <input type="email" name="email" pattern="[^ @]*@[^ @]*"  class="form-control" required="">
                                     <span class="form-bar"></span>
                                     <label class="float-label">Your Email Address</label>
                                 </div>
@@ -154,20 +166,45 @@
                                 </div>
                                 <div class="row m-t-30">
                                     <div class="col-md-12">
-                                        <button type="button" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Sign up now</button>
+                                        <button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Sign up now</button>
                                     </div>
                                 </div>
                                 <hr/>
                                 <div class="row">
-                                    <div class="col-md-10">
-                                        <p class="text-inverse text-left m-b-0">Thank you.</p>
-                                        <p class="text-inverse text-left"><a href="index.html"><b>Back to website</b></a></p>
+                                    <div class="col-md-12">
+
+                                        <p>or sign up with:
+                                            
+                                                <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1"style="color #1Ac3B3;"class="">
+                                                    <i class="fab fa-facebook-f"></i>
+                                                  </button>
+                                              
+                                                  <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1"style="color #1Ac3B3;"class="">
+                                                    <i class="fab fa-google"></i>
+                                                  </button>
+                                              
+                                                  <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1"style="color #1Ac3B3;"class="">
+                                                    <i class="fab fa-twitter"></i>
+                                                  </button>
+                                              
+                                                  <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1"style="color #1Ac3B3;"class="">
+                                                    <i class="fab fa-github"></i>
+                                                  </button>
+                                                          
+                                            
+                                        </p>
                                     </div>
-                                    <div class="col-md-2">
-                                        <img src="assets/images/auth/Logo-small-bottom.png" alt="small-logo.png">
+                                    <div class="col-md-9" style="padding-top: 10px;">
+                                        <p class="text-inverse text-left m-b-0">Already registered?</p>
+                                        <p class="text-inverse text-left"><a href="/login"><b>SignIn   </b></a></p>
                                     </div>
+                                    <div class="col-md-3"style="padding-top: 10px;">
+                                        Learnbuds
+                                        {% comment %} <img src="assets/images/auth/Logo-small-bottom.png" alt="small-logo.png"> 
+                                    </div>
+                                    
                                 </div>
-                            </div>
+                        </div>
                         </div>
                     </form>
                 </div>
@@ -177,50 +214,6 @@
         </div>
         <!-- end of container-fluid -->
     </section>
-    <!-- Warning Section Starts -->
-    <!-- Older IE warning message -->
-    <!--[if lt IE 10]>
-<div class="ie-warning">
-    <h1>Warning!!</h1>
-    <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
-    <div class="iew-container">
-        <ul class="iew-download">
-            <li>
-                <a href="http://www.google.com/chrome/">
-                    <img src="assets/images/browser/chrome.png" alt="Chrome">
-                    <div>Chrome</div>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.mozilla.org/en-US/firefox/new/">
-                    <img src="assets/images/browser/firefox.png" alt="Firefox">
-                    <div>Firefox</div>
-                </a>
-            </li>
-            <li>
-                <a href="http://www.opera.com">
-                    <img src="assets/images/browser/opera.png" alt="Opera">
-                    <div>Opera</div>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.apple.com/safari/">
-                    <img src="assets/images/browser/safari.png" alt="Safari">
-                    <div>Safari</div>
-                </a>
-            </li>
-            <li>
-                <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                    <img src="assets/images/browser/ie.png" alt="">
-                    <div>IE (9 & above)</div>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <p>Sorry for the inconvenience!</p>
-</div>
-<![endif]-->
-<!-- Warning Section Ends -->
 <!-- Required Jquery -->
     <script type="text/javascript" src="assets/js/jquery/jquery.min.js"></script>     <script type="text/javascript" src="assets/js/jquery-ui/jquery-ui.min.js "></script>     <script type="text/javascript" src="assets/js/popper.js/popper.min.js"></script>     <script type="text/javascript" src="assets/js/bootstrap/js/bootstrap.min.js "></script>
 <!-- waves js -->
@@ -237,4 +230,31 @@
 <script type="text/javascript" src="assets/js/common-pages.js"></script>
 </body>
 
-</html>
+</html> {% endcomment %}
+
+
+
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+</body>
+</html> {% endcomment %}
+
+
+
+
+{% endblock %}

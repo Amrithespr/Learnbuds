@@ -5,12 +5,35 @@ from .models import Jobportal,CompanyDashboard,CompanyProfiles,CompanyActivityTr
 from .models import Jobportal,UserDashboard,UserProfiles,UserActivityTracking,UserSuspension,UserFeedback
 from .models import JobApplicationTracking,JobCategoryManagement,JobListingDashboard,JobPostingEditing,JobStatusManagement
 
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView
+from django.contrib.auth.views import LoginView
+from .forms import CustomUserCreationForm
 
+from django.contrib import messages, auth
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
+from django.urls import reverse
 # Create your views here.
 
 
 
 # class based views
+
+class RegisterView(CreateView):
+    form_class = CustomUserCreationForm
+    template_name = 'authentication/register.html'
+    success_url = reverse_lazy('login')
+
+class CustomLoginView(LoginView):
+    template_name = 'authentication/login.html'
+
+
+
+
+
+
 
 class HomeView(ListView):
 
@@ -31,21 +54,7 @@ class ContactView(ListView):
     model = Jobportal
     template_name = 'contact.html'
     context_object_name = 'job'
-    
-
-class RegisterView(ListView):
-
-    model = Jobportal
-    template_name = ''
-    context_object_name = 'job'
-    
-    
-class LoginView(ListView):
-
-    model = Jobportal
-    template_name = ''
-    context_object_name = 'job'   
-     
+       
 
 class ForgotPasswordView(ListView):
 
@@ -172,11 +181,51 @@ class JobStatusManagement(ListView):
 
 # Authentication
 
-def register(request):
-    return render (request, 'Authentication/register.html')
+ # credentiails
 
 def login(request):
-    return render (request, 'Authentication/login.html')
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = auth.authenticate(username=username,password=password)
+        if user is not None:
+            auth.login(request,user)
+            return redirect('/')
+        else:
+            messages.info(request,'Invalid username/password')
+            return redirect('/login')
+    return render(request,'Authentication/login.html')
+
+
+def register(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+        if User.objects.filter(username=username).exists():
+            messages.info(request,'username already taken')
+            return redirect('register')
+        elif User.objects.filter(email=email).exists():
+            messages.info(request,'email already taken')
+            return redirect('register')
+        else:
+            user = User.objects.create_user(username=username,email=email,password=password)
+            user.save()
+            print('User created')
+            messages.info(request,"Registered successfully")
+            return redirect('/login')
+    return render(request,'Authentication/register.html')
+
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
+
+
+# def register(request):
+#     return render (request, 'Authentication/register.html')
+
+# def login(request):
+#     return render (request, 'Authentication/login.html')
 
 def editProfile(request):
     return render (request, 'Authentication/editProfile.html')
@@ -227,3 +276,9 @@ def ViewReportsAndAnalytics(request):
 
 def PaymentSettings(request):
     return render (request, 'PaymentSettings/PaymentSettings.html')
+
+
+#  Job Portal View
+
+def JobPortalHome(request):
+    return render (request, 'JobPortalView/Home.html')

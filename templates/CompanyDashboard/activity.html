@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
-
 {% load static %}
 
-{% block title %} Company Activity Tracking {% endblock %}
 
+{% block headerTitle %} Company Activity Tracking {% endblock headerTitle %}
+{% block headerExplanation%} 
+<div style="margin-right: 71px;">
+  Monitor company activities, such as job postings and profile updates
+</div>
+  {% endblock headerExplanation%}</div>
+
+{% block pagename%} Company > Company Activity Tracking {% endblock pagename  %}
 {% block content %}
 
 
@@ -70,7 +76,7 @@
       border-top: none;
       border-bottom: 2px solid #dee2e6;
       background-color: #f8f9fa;
-      color: #1Ac3B3;
+      color #1Ac3B3;
     }
 
     .table tbody tr:hover {

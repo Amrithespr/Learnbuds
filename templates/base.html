@@ -41,6 +41,9 @@
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/morris.js/css/morris.css' %}">
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
+
+    {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> {% endcomment %}
+
 </head>
 
 <body>
@@ -119,7 +122,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="{% url 'jobportal:home' %}">
+                    <a href="{% url 'administrator:home' %}">
                         {% comment %} <img class="img-fluid" src="{% static 'assets/images/logo.png' %}"
                                            alt="Theme-Logo"/> {% endcomment %}
                         <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>Learnbuds</small></h4>
@@ -258,7 +261,7 @@
                             <div class="main-menu-content">
                                 <ul>
                                     <li class="more-details">
-                                        <a href=" user-profile.html "><i class="ti-user"></i>View Profile</a>
+                                        <a href=" /editProfile "><i class="ti-user"></i>View Profile</a>
                                         <a href="#!"><i class="ti-settings"></i>Settings</a>
                                         <a href="{% static 'auth-normal-sign-in.html' %}"><i
                                                 class="ti-layout-sidebar-left"></i>Logout</a>
@@ -275,10 +278,12 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="pcoded-navigation-label" data-i18n="nav.category.navigation">Layout</div>
+                        {% comment %} <div class="pcoded-navigation-label" data-i18n="nav.category.navigation">Layout</div> {% endcomment %}
+                        <div class="pcoded-navigation-label" data-i18n="nav.category.navigation"></div>
                         <ul class="pcoded-item pcoded-left-item">
-                            <li class="active">
-                                <a href="{% url 'jobportal:home' %}" class="waves-effect waves-dark">
+                            {% comment %} <li class="active"> {% endcomment %}
+                            <li class="">
+                                <a href="{% url 'administrator:home' %}" class="waves-effect waves-dark">
                                     <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                                     <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
                                     <span class="pcoded-mcaret"></span>
@@ -292,7 +297,7 @@
                                 </a>
                                 <ul class="pcoded-submenu">
                                     <li class=" ">
-                                        <a href="{% url 'jobportal:CompanyDashboard' %} "
+                                        <a href="{% url 'administrator:CompanyDashboard' %} "
                                            class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext"
@@ -369,6 +374,7 @@
                                     </li>
 
                                 </ul> {% endcomment %}
+                                </li>
                             <li class="pcoded-hasmenu">
                                 <a href="javascript:void(0)" class="waves-effect waves-dark">
                                     <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
@@ -377,21 +383,22 @@
                                 </a>
                                 <ul class="pcoded-submenu">
                                     <li class=" ">
-                                        <a href=" {% url 'jobportal:UserDashboard' %}" class="waves-effect waves-dark">
+                                        <a href=" {% url 'administrator:UserDashboard' %}" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">User Dashboard</span>
+                                            <span class="pcoded-mtext" data-i18n="nav.basic-components.alert"
+                                            class="list-group-item list-group-item-action" data-toggle="list">User Dashboard</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
                                     <li class=" ">
-                                        <a href="{% url 'jobportal:UserProfiles' %}" class="waves-effect waves-dark">
+                                        <a href="{% url 'administrator:UserProfiles' %}" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">User Profiles</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
                                     <li class=" ">
-                                        <a href="{% url 'jobportal:UserActivityTracking' %}"
+                                        <a href="{% url 'administrator:UserActivityTracking' %}"
                                            class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">User Activity Tracking</span>
@@ -399,14 +406,14 @@
                                         </a>
                                     </li>
                                     <li class=" ">
-                                        <a href="{% url 'jobportal:UserSuspension' %}" class="waves-effect waves-dark">
+                                        <a href="{% url 'administrator:UserSuspension' %}" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">User Suspension</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
                                     <li class=" ">
-                                        <a href="{%  url 'jobportal:UserFeedback' %}" class="waves-effect waves-dark">
+                                        <a href="{%  url 'administrator:UserFeedback' %}" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">User Feedback</span>
                                             <span class="pcoded-mcaret"></span>
@@ -421,7 +428,7 @@
                                 </a>
                                 <ul class="pcoded-submenu">
                                     <li class=" ">
-                                        <a href=" {% url 'jobportal:CompanyDashboard' %} "
+                                        <a href=" {% url 'administrator:CompanyDashboard' %} "
                                            class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Company Dashboard</span>
@@ -429,47 +436,118 @@
                                         </a>
                                     </li>
                                     <li class=" ">
-                                        <a href="{% static 'breadcrumb.html' %}" class="waves-effect waves-dark">
+                                        <a href="{% url 'administrator:CompanyProfiles' %}" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Breadcrumbs</span>
+                                            <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Company Profiles</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
                                     <li class=" ">
-                                        <a href="{% static 'button.html' %}" class="waves-effect waves-dark">
+                                        <a href="{% url 'administrator:CompanyActivityTracking' %}" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext"
-                                                  data-i18n="nav.basic-components.alert">Button</span>
+                                                  data-i18n="nav.basic-components.alert">Company Activity Tracking</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
                                     <li class=" ">
-                                        <a href="{% static 'tabs.html' %}" class="waves-effect waves-dark">
+                                        <a href="{% url 'administrator:CompanySuspension' %}" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext"
-                                                  data-i18n="nav.basic-components.breadcrumbs">Tabs</span>
+                                                  data-i18n="nav.basic-components.breadcrumbs">Company Suspension</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
                                     <li class=" ">
-                                        <a href="{% static  'color.html' %}" class="waves-effect waves-dark">
+                                        <a href="{% url 'administrator:CompanyFeedback' %}" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext"
-                                                  data-i18n="nav.basic-components.alert">Color</span>
+                                                  data-i18n="nav.basic-components.alert">Company Feedback</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
-                                    </li>
-
-
                                     </li>
                                 </ul>
+                            </li>    
+                            
+                            <hr/>
 
-                                <div class="pcoded-navigation-label" data-i18n="nav.category.forms">Forms &amp; Tables
-                                </div>
+                            <li class="pcoded-hasmenu">
+                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                    <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                                    <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Job Management</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a>
+                                <ul class="pcoded-submenu">
+                                    <li class=" ">
+                                        <a href=" {% url 'administrator:JobApplicationTracking' %} "
+                                           class="waves-effect waves-dark">
+                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Job Application Tracking</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                    <li class=" ">
+                                        <a href="{% url 'administrator:JobCategoryManagement' %}" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Job Category Management</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                    <li class=" ">
+                                        <a href="{% url 'administrator:JobListingDashboard' %}" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                            <span class="pcoded-mtext"
+                                                  data-i18n="nav.basic-components.alert">Job Listing Dashboard</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                    <li class=" ">
+                                        <a href="{% url 'administrator:JobStatusManagement' %}" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                            <span class="pcoded-mtext"
+                                                  data-i18n="nav.basic-components.breadcrumbs">Job Status Management</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                    <li class=" ">
+                                        <a href="{% url 'administrator:JobPostingEditing' %}" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                            <span class="pcoded-mtext"
+                                                  data-i18n="nav.basic-components.alert">Job Posting & Editing</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>    
+                            
+                            <hr/>
+
+                            <li class="pcoded-hasmenu">
+                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                    <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                                    <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Job Portal UserView</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a>
+                                <ul class="pcoded-submenu">
+                                    <li class=" ">
+                                        <a href=" {% url 'administrator:JobPortalViewHome' %} "
+                                           class="waves-effect waves-dark">
+                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Home</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>    
+                            
+                            <hr/>
+
+                                {% comment %} <div class="pcoded-navigation-label" data-i18n="nav.category.forms">Forms &amp; Tables</div>
+                                
                                 <ul class="pcoded-item pcoded-left-item">
                                     <li>
-                                        <a href="form-elements-component.html"
-                                           class="waves-effect waves-dark">
+                                        {% comment %} <a href="form-elements-component.html" ></a> 
+                                        <a href=""class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                                             <span class="pcoded-mtext" data-i18n="nav.form-components.main">Form Components</span>
                                             <span class="pcoded-mcaret"></span>
@@ -484,12 +562,14 @@
                                         </a>
                                     </li>
 
-                                </ul>
+                                </ul> {% endcomment %}
 
-                                <div class="pcoded-navigation-label" data-i18n="nav.category.forms">Chart &amp; Maps
+                                <div class="pcoded-navigation-label" data-i18n="nav.category.forms">
+                                    Authentication
+                                    {% comment %} Chart &amp; Maps {% endcomment %}
                                 </div>
                                 <ul class="pcoded-item pcoded-left-item">
-                                    <li>
+                                    {% comment %} <li>
                                         <a href="chart.html" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                                             <span class="pcoded-mtext" data-i18n="nav.form-components.main">Chart</span>
@@ -502,8 +582,8 @@
                                             <span class="pcoded-mtext" data-i18n="nav.form-components.main">Maps</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
-                                    </li>
-                                    <li class="pcoded-hasmenu">
+                                    </li> {% endcomment %}
+                                    {% comment %} <li class="pcoded-hasmenu">
                                         <a href="javascript:void(0)" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
                                             <span class="pcoded-mtext"
@@ -537,60 +617,72 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                    </li>
-
-                                </ul>
-
-                                <div class="pcoded-navigation-label" data-i18n="nav.category.other">Other</div>
-                                <ul class="pcoded-item pcoded-left-item">
-                                    <li class="pcoded-hasmenu ">
+                                    </li> {% endcomment %}
+                                    <li class="pcoded-hasmenu">
                                         <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
-                                            <span class="pcoded-mtext"
-                                                  data-i18n="nav.menu-levels.main">Menu Levels</span>
+                                            <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Pages</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                         <ul class="pcoded-submenu">
-                                            <li class="">
-                                                <a href=" javascript:void(0)" class="waves-effect waves-dark">
+                                            <li class=" ">
+                                                <a href="/login" class="waves-effect waves-dark">
                                                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                     <span class="pcoded-mtext"
-                                                          data-i18n="nav.menu-levels.menu-level-21">Menu Level 2.1</span>
+                                                          data-i18n="nav.basic-components.alert">Login</span>
                                                     <span class="pcoded-mcaret"></span>
                                                 </a>
                                             </li>
-                                            <li class="pcoded-hasmenu ">
-                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                                    <span class="pcoded-micon"><i class="ti-direction-alt"></i></span>
-                                                    <span class="pcoded-mtext"
-                                                          data-i18n="nav.menu-levels.menu-level-22.main">Menu Level 2.2</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                                <ul class="pcoded-submenu">
-                                                    <li class="">
-                                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                                            <span class="pcoded-micon"><i
-                                                                    class="ti-angle-right"></i></span>
-                                                            <span class="pcoded-mtext"
-                                                                  data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Menu Level 3.1</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="">
-                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                            <li class=" ">
+                                                <a href="/register" class="waves-effect waves-dark">
                                                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext"
-                                                          data-i18n="nav.menu-levels.menu-level-23">Menu Level 2.3</span>
+                                                    <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Register</span>
                                                     <span class="pcoded-mcaret"></span>
                                                 </a>
                                             </li>
-
+                                            {% comment %} <li class=" ">
+                                                <a href="sample-page.html" class="waves-effect waves-dark">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Sample Page</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li> {% endcomment %}
                                         </ul>
                                     </li>
+
                                 </ul>
-                    </div>
+
+                                <div class="pcoded-navigation-label" data-i18n="nav.category.forms">
+                                    Communication
+                                </div>
+                                <ul class="pcoded-item pcoded-left-item">
+                                    <li class="pcoded-hasmenu">
+                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Pages</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class=" ">
+                                                <a href="" class="waves-effect waves-dark">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext"
+                                                          data-i18n="nav.basic-components.alert">email Notificaions</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                            <li class=" ">
+                                                <a href="/announcement" class="waves-effect waves-dark">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Announcements</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+
                 </nav>
                 <div class="pcoded-content">
                     <!-- Page-header start -->
@@ -618,7 +710,7 @@
                                 <div class="col-md-4">
                                     <ul class="breadcrumb-title">
                                         <li class="breadcrumb-item">
-                                            <a href="{% static  'jobportal:home' %}"> <i class="fa fa-home"></i> </a>
+                                            <a href="{% static  'administrator:home' %}"> <i class="fa fa-home"></i> </a>
                                         </li>
                                         <li class="breadcrumb-item"><a href="#!">{% block pagename%}Dashboard{% endblock pagename%}</a>
                                         </li>

@@ -1,5 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block headerTitle %} Sign In {% endblock headerTitle %}
+{% block headerExplanation%} 
+<div style="margin-right: 71px;">
+{% comment %} Browse and manage the profiles of registered users {% endcomment %}
+</div>
+{% endblock headerExplanation%}
+
+{% block pagename%} Pages > Sign In{% endblock pagename  %}
+
+{% block content%}
 
 <head>
     <title>Mega Able bootstrap admin template by codedthemes </title>
@@ -33,6 +45,8 @@
       <link rel="stylesheet" type="text/css" href="assets/icon/font-awesome/css/font-awesome.min.css">
       <!-- Style.css -->
       <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <!-- social icons.css -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
   </head>
 
   <body themebg-pattern="theme1">
@@ -98,10 +112,11 @@
                 <div class="col-sm-12">
                     <!-- Authentication card start -->
                     
-                        <form class="md-float-material form-material">
+                        <form class="md-float-material form-material" action="/login/" method="POST" role="form">
                             <div class="text-center">
-                                <img src="assets/images/logo.png" alt="logo.png">
-                            </div>
+                                {% comment %} <img src="assets/images/logo.png" alt="logo.png"> {% endcomment %}
+                            
+                            </div> {% csrf_token %}
                             <div class="auth-box card">
                                 <div class="card-block">
                                     <div class="row m-b-20">
@@ -110,10 +125,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group form-primary">
-                                        <input type="text" name="email" class="form-control" required="">
+                                        <input type="text" name="username" class="form-control" required="">
                                         <span class="form-bar"></span>
-                                        <label class="float-label">Your Email Address</label>
-                                    </div>
+                                        <label class="float-label">Your Username</label>
+                                    </div> {% for msg in messages %} {{msg}}  {% endfor %} 
                                     <div class="form-group form-primary">
                                         <input type="password" name="password" class="form-control" required="">
                                         <span class="form-bar"></span>
@@ -129,24 +144,49 @@
                                                 </label>
                                             </div>
                                             <div class="forgot-phone text-right f-right">
-                                                <a href="#" class="text-right f-w-600"> Forgot Password?</a>
+                                                <a href="/password_reset" class="text-right f-w-600"> Forgot Password?</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row m-t-30">
                                         <div class="col-md-12">
-                                            <button type="button" class="btn btn-primary btn-md btn-block waves-effect waves-light text-center m-b-20">Sign in</button>
+                                            <button type="submit" class="btn btn-primary btn-md btn-block waves-effect waves-light text-center m-b-20">Sign in</button>
                                         </div>
                                     </div>
                                     <hr/>
                                     <div class="row">
-                                        <div class="col-md-10">
-                                            <p class="text-inverse text-left m-b-0">Thank you.</p>
-                                            <p class="text-inverse text-left"><a href="index.html"><b>Back to website</b></a></p>
+                                        <div class="col-md-12">
+
+                                            <p>or sign In with:
+                                                
+                                                    <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1"style="color #1Ac3B3;"class="">
+                                                        <i class="fab fa-facebook-f"></i>
+                                                      </button>
+                                                  
+                                                      <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1"style="color #1Ac3B3;"class="">
+                                                        <i class="fab fa-google"></i>
+                                                      </button>
+                                                  
+                                                      <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1"style="color #1Ac3B3;"class="">
+                                                        <i class="fab fa-twitter"></i>
+                                                      </button>
+                                                  
+                                                      <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1"style="color #1Ac3B3;"class="">
+                                                        <i class="fab fa-github"></i>
+                                                      </button>
+                                                              
+                                                
+                                            </p>
                                         </div>
-                                        <div class="col-md-2">
-                                            <img src="assets/images/auth/Logo-small-bottom.png" alt="small-logo.png">
+                                        <div class="col-md-9" style="padding-top: 10px;">
+                                            <p class="text-inverse text-left m-b-0">Not registered yet?</p>
+                                            <p class="text-inverse text-left"><a href="/register"><b>Sign Up   </b></a></p>
                                         </div>
+                                        <div class="col-md-3"style="padding-top: 10px;">
+                                            Learnbuds
+                                            {% comment %} <img src="assets/images/auth/Logo-small-bottom.png" alt="small-logo.png"> {% endcomment %}
+                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -217,6 +257,28 @@
 <script type="text/javascript" src="bower_components/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js"></script>
 <script type="text/javascript" src="bower_components/jquery-i18next/js/jquery-i18next.min.js"></script>
 <script type="text/javascript" src="assets/js/common-pages.js"></script>
+
+
+
+
+{% comment %} <div class="container">
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div> {% endcomment %}
+
+
+
 </body>
 
-</html>
+
+
+
+
+
+
+
+{% endblock %}

@@ -127,7 +127,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="{% url 'jobportal:home' %}">
+                    <a href="{% url 'administrator:home' %}">
                         {% comment %} <img class="img-fluid" src="{% static 'assets/images/logo.png' %}"
                                            alt="Theme-Logo"/> {% endcomment %}
                         <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>Learnbuds</small></h4>
@@ -286,7 +286,7 @@
                         <div class="pcoded-navigation-label" data-i18n="nav.category.navigation">Layout</div>
                         <ul class="pcoded-item pcoded-left-item">
                             <li class="active">
-                                <a href="{% url 'jobportal:home' %}" class="waves-effect waves-dark">
+                                <a href="{% url 'administrator:home' %}" class="waves-effect waves-dark">
                                     <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                                     <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
                                     <span class="pcoded-mcaret"></span>
@@ -300,7 +300,7 @@
                                 </a>
                                 <ul class="pcoded-submenu">
                                     <li class=" ">
-                                        <a href="{% url 'jobportal:CompanyDashboard' %} "
+                                        <a href="{% url 'administrator:CompanyDashboard' %} "
                                            class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext"
@@ -385,21 +385,21 @@
                                 </a>
                                 <ul class="pcoded-submenu">
                                     <li class=" ">
-                                        <a href=" {% url 'jobportal:UserDashboard' %}" class="waves-effect waves-dark">
+                                        <a href=" {% url 'administrator:UserDashboard' %}" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">User Dashboard</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
                                     <li class=" ">
-                                        <a href="{% url 'jobportal:UserProfiles' %}" class="waves-effect waves-dark">
+                                        <a href="{% url 'administrator:UserProfiles' %}" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">User Profiles</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
                                     <li class=" ">
-                                        <a href="{% url 'jobportal:UserActivityTracking' %}"
+                                        <a href="{% url 'administrator:UserActivityTracking' %}"
                                            class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">User Activity Tracking</span>
@@ -407,14 +407,14 @@
                                         </a>
                                     </li>
                                     <li class=" ">
-                                        <a href="{% url 'jobportal:UserSuspension' %}" class="waves-effect waves-dark">
+                                        <a href="{% url 'administrator:UserSuspension' %}" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">User Suspension</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
                                     <li class=" ">
-                                        <a href="{%  url 'jobportal:UserFeedback' %}" class="waves-effect waves-dark">
+                                        <a href="{%  url 'administrator:UserFeedback' %}" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">User Feedback</span>
                                             <span class="pcoded-mcaret"></span>
@@ -429,7 +429,7 @@
                                 </a>
                                 <ul class="pcoded-submenu">
                                     <li class=" ">
-                                        <a href=" {% url 'jobportal:CompanyDashboard' %} "
+                                        <a href=" {% url 'administrator:CompanyDashboard' %} "
                                            class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Company Dashboard</span>
@@ -609,15 +609,15 @@
                                     <div class="page-header-title">
                                         <h5 class="m-b-10">{% block headerTitle %} {%endblock headerTitle%}</h5>
                                         <p class="m-b-0">{% block headerExplanation%} {% endblock headerExplanation%}</p>
-                                        <p class="m-b-0">Welcome to Learnbuds JobPortal</p>
+                                        {% comment %} <p style="text-align:left">Welcome to Learnbuds JobPortal</p> {% endcomment %}
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <ul class="breadcrumb-title">
                                         <li class="breadcrumb-item">
-                                            <a href="{% static  'jobportal:home' %}"> <i class="fa fa-home"></i> </a>
+                                            <a href="{% static  'administrator:home' %}"> <i class="fa fa-home"></i> </a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="#!">Dashboard</a>
+                                        <li class="breadcrumb-item"><a href="#!">{% block pagename%} {% endblock pagename%}</a>
                                         </li>
                                     </ul>
                                 </div>

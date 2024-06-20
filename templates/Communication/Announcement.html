@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block headerTitle %} Announcement {% endblock headerTitle %}
+{% block headerExplanation%}
+<div style="text-align: center;margin-right: 101px;">
+Notifications to each member of jobportal 
+</div>{% endblock headerExplanation%}
+
+{% block pagename%} Communication>Announcement  {% endblock pagename  %}
+{% block content %}
+
+<div class="container" style="margin-top: 100px;">
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Announcement</h5>
+            <!--<span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>-->
+        </div>
+        <div class="card-block">
+            <form class="form-material">
+                <div class="form-group form-default">
+                    <label for="footer-select" class="form-label">Select an option (Max length 6 char)</label>
+                    <select name="footer-select" id="footer-select" class="form-control" required="">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="option1">All Users</option>
+                        <option value="option2">Job Seekers</option>
+                        <option value="option3">Companys</option>
+                    </select>
+                    <div class="form-bar"></div>
+                </div>
+                <div class="form-group form-default">
+                    <textarea class="form-control" required=""></textarea>
+                    <span class="form-bar"></span>
+                    <label class="float-label">Text area Input</label>
+                </div>
+                <button class="btn btn-outline-primary">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+
+{%endblock%}

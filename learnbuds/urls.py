@@ -23,7 +23,8 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('', include("jobportal.urls")),
+    path('jobportal', include("jobportal.urls")),
+    path('', include("administrator.urls")),
     path('authentication/', include("authentication.urls")),
 
 ]
