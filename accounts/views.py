@@ -31,3 +31,9 @@ def register(request):
         'form': UserCreationForm()
     }
     return render(request, 'accounts/register.html', context)
+
+def profile(request):
+    context = {
+        'form': UserProfileForm()
+    }
+    return render(request, 'accounts/profile.html', context)

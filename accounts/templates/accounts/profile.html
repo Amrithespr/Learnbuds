@@ -1,0 +1,82 @@
+{% extends 'accounts/base.html' %}
+
+
+{% block content %}
+
+<div class="container fluid">
+    <div class="row">
+        <div class="col-sm-4 offset-sm-4">
+            <h1 class="text-center mt-5">Profile</h1>
+    <form method="post">
+         {% csrf_token %}
+        
+         <br>
+        <h4>Contact Information</h4>
+        
+        <div class="form-group ">
+            <label class"fw-bold">{{ form.phone.label }}</label>
+            {{ form.phone }}
+        </div>
+        <div class="form-group ">
+            <label class"fw-bold">{{ form.email.label }}</label>
+            {{ form.email }}
+        </div>
+        
+        <br>
+        <h4>Location</h4>
+        <p>This helps match you with nearby jobs </p>
+
+        <div class="form-group">
+            <label class"fw-bold">{{ form.country.label }}</label>
+            {{ form.country }}
+        </div>
+
+        <div class="form-group">
+            <label class"fw-bold">{{ form.street_address.label }}</label>
+            {{ form.street_address }}
+        </div>
+
+        <div class="form-group">
+            <label class"fw-bold">{{ form.city.label }}</label>
+            {{ form.city }}
+        </div>
+        
+        <div class="form-group">
+            <label class"fw-bold">{{ form.postcode.label }}</label>
+            {{ form.postcode }}
+        </div>
+        
+        <div class="form-group">
+        <input type="file" class="btn btn-primary mt-2">{{ form.cv.label }}</button>
+        </div>
+
+        <br>
+        <small>If you want, you can skip this field</small>
+
+        <div class="form-group">
+        <input type="file" class="btn btn-primary mt-2">{{ form.photo.label }}</button>
+        </div>
+        
+        <br>
+        <h4>Recent Job Details</h4>
+        <small>If you want, you can skip this fields</small>
+        <br><br>
+
+        <div class="form-group">
+            <label class"fw-bold">{{ form.jobtitle.label }}</label>
+            {{ form.street_address }}
+        </div>
+
+        <div class="form-group">
+            <label class"fw-bold">{{ form.company.label }}</label>
+            {{ form.street_address }}
+        </div>
+
+        <div class="d-grid">
+            <button class="btn btn-primary mt-2">Save</button>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+{% endblock %}

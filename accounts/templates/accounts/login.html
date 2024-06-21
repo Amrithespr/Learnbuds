@@ -7,6 +7,7 @@
             <div class="col-sm-4 offset-sm-4">
                 <h1 class="text-center mt-5">Login</h1>
                 <form method="post">
+                    {% csrf_token %}
                     <div class="form-group">
                         <label for="">{{ form.username.label }}</label>
                         {{ form.username }}
@@ -30,6 +31,12 @@
                     <div class="d-grid">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-primary mt-2">Login</button>
+                    </div>
+                    <a href="/password_reset">Forgot Password ?</a>
+                    <br><br>
+                    <div>
+                        <p >Not registered yet?
+                        <a href="/register">Sign Up</a></p>
                     </div>
                 </form>
             </div>

@@ -25,6 +25,7 @@ urlpatterns = [
     path('jobportal/', include("jobportal.urls")),
     path('administrator/', include("administrator.urls", namespace='administrator')),
     path('', include('accounts.urls', namespace='accounts')),
+    path('password_reset/', include('django.contrib.auth.urls')),
 
 ]
 
