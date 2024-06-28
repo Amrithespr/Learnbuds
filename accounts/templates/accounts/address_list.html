@@ -1,0 +1,18 @@
+{% extends 'shared/base.html' %}
+
+
+{% block content %}
+    <div class="container fluid">
+        <div class="row">
+            <div class="col-sm-4 offset-sm-4">
+                <h1 class="text-center mt-5">Address List</h1>
+                
+                {% for address in data %}
+                    <p>{{ address.name }}</p>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+    

@@ -17,11 +17,11 @@
             <label class"fw-bold">{{ form.phone.label }}</label>
             {{ form.phone }}
         </div>
-        <div class="form-group ">
+        {% comment %} <div class="form-group ">
             <label class"fw-bold">{{ form.email.label }}</label>
             {{ form.email }}
         </div>
-        
+         {% endcomment %}
         <br>
         <h4>Location</h4>
         <p>This helps match you with nearby jobs </p>
@@ -72,6 +72,64 @@
             {{ form.street_address }}
         </div>
 
+        <br>
+        <h4>Highest Education Details</h4>
+       
+
+        <div class="form-group">
+            <label class"fw-bold">{{ form.education.label }}</label>
+            {{ form.education }}
+        </div>
+
+        <div class="form-group">
+            <label class"fw-bold">{{ form.fieldOfStudy.label }}</label>
+            {{ form.fieldOfStudy }}
+        </div>
+
+        <div class="form-group">
+            <label class"fw-bold">{{ form.school.label }}</label>
+            {{ form.school }}
+        </div>
+
+        <br>
+        <h4>Confirm Skills From Your CV</h4>
+
+        <div class="form-group">
+            <label class"fw-bold">{{ form.skills.label }}</label>
+            {{ form.skills }}
+        </div>
+
+        <br>
+        <h4>Add Certifications or Lisceneces</h4>
+
+        <div class="form-group">
+            <label class"fw-bold">{{ form.certification.label }}</label>
+            {{ form.certification }}
+        </div>
+
+        <br>
+        <h4>what are you looking for in your next job? </h4>
+
+        <div class="form-group">
+            <label class"fw-bold">{{ form.futureJobTitle.label }}</label>
+            {{ form.futureJobTitle }}
+        </div>
+
+        <div class="form-group">
+            <label class"fw-bold">{{ form.futureJobTypes.label }}</label>
+            {{ form.futureJobTypes }}
+        </div>
+
+        <div class="form-group">
+            <label class"fw-bold">{{ form.workSchedule.label }}</label>
+            {{ form.workSchedule }}
+        </div>
+
+        <div class="form-group">
+            <label class"fw-bold">{{ form.futureSalary.label }}</label>
+            {{ form.futureSalary }}
+        </div>
+        
         <div class="d-grid">
             <button class="btn btn-primary mt-2">Save</button>
         </div>

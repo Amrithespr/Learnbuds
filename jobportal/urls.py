@@ -12,8 +12,8 @@ urlpatterns = [
     path("contact/", views.contact, name="contact"),
 
     # Authentication
-    path("login/", views.login, name="login"),
-    path("register/", views.register, name="register"),
+    # path("login/", views.login, name="login"),
+    # path("register/", views.register, name="register"),
     path("ForgotPassword/", views.ForgotPassword, name="ForgotPassword"),
     path("editProfile/", views.editProfile, name="editProfile"),
     
